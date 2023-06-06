@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5k3h46AQf8xWMBXBVEPyq8defx1NtTPR5BCZw/VEiCYm+xRtDkGEIsG8q7SH34QSiYKKVfrWW7iwdP1gnxVZ4g==",
+  "dgSpecHash": "wQxWgbAiHn1BA9wtWX1hr3nB55219i4c+wbKWvevT2ueoWEPtbOTwyNQ/kIEpkJfW2cu/Nw7BIjWHZHJAWWUFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\Bookstore.csproj",
+  "projectFilePath": "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\Bookstore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sturchyn\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sturchyn\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

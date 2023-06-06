@@ -13,10 +13,10 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<IEnumerable<Author>> GetAll() => await _context.Authors.ToListAsync();
 
-        public async Task<Author> GetById(int id)
+        public async Task<Author?> GetById(int id)
         {
-            Author author = await _context.Authors.FindAsync(id);
-            return author == null ? null : author;
+            Author? author = await _context.Authors.FindAsync(id);
+            return author;
         }
 
         public async Task<int> Create(Author author)
@@ -24,7 +24,7 @@ namespace Bookstore.Repositories.Repositories
             await _context.Authors.AddAsync(author);
             await _context.SaveChangesAsync();
 
-            return _context.Authors.FindAsync(author.Id).Result.Id;
+            return  (await _context.Authors.FindAsync(author.Id)).Id;
         }
 
         public async Task<bool> Update(int id, Author author)
@@ -50,7 +50,7 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            Author author = await _context.Authors.FindAsync(id);
+            Author? author = await _context.Authors.FindAsync(id);
 
             if (author == null) return false;
 

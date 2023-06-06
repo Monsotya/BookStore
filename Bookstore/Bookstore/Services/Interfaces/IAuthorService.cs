@@ -9,7 +9,7 @@ namespace Bookstore.Services.Interfaces
         Task<IEnumerable<Author>> GetAllAuthors();
         Task<IEnumerable<Author>> GetAllAuthorsSortedByDateOfBirth(bool isDescending);
         Task<IEnumerable<Author>> GetAllAuthorsSortedBySurname(bool isDescending);
-        Task<Author> GetAuthorById(int id);
+        Task<Author?> GetAuthorById(int id);
         Task<bool> UpdateAuthor(int id, Author author);
     }
 }

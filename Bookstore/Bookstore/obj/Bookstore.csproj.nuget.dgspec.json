@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\Bookstore.csproj": {}
+    "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\Bookstore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\Bookstore.csproj": {
+    "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\Bookstore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\Bookstore.csproj",
+        "projectUniqueName": "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\Bookstore.csproj",
         "projectName": "Bookstore",
-        "projectPath": "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\Bookstore.csproj",
+        "projectPath": "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\Bookstore.csproj",
         "packagesPath": "C:\\Users\\sturchyn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sturchyn\\source\\repos\\Bookstore\\Bookstore\\obj\\",
+        "outputPath": "C:\\Users\\sturchyn\\Documents\\GitHub\\BookStore\\Bookstore\\Bookstore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

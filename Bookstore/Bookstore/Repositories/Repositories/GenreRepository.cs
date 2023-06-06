@@ -13,10 +13,10 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<IEnumerable<Genre>> GetAll() => await _context.Genres.ToListAsync();
 
-        public async Task<Genre> GetById(int id)
+        public async Task<Genre?> GetById(int id)
         {
-            Genre genre = await _context.Genres.FindAsync(id);
-            return genre == null ? null : genre;
+            Genre? genre = await _context.Genres.FindAsync(id);
+            return genre;
         }
 
         public async Task<int> Create(Genre genre)
@@ -24,7 +24,7 @@ namespace Bookstore.Repositories.Repositories
             await _context.Genres.AddAsync(genre);
             await _context.SaveChangesAsync();
 
-            return _context.Genres.FindAsync(genre.Id).Result.Id;
+            return (await _context.Genres.FindAsync(genre.Id)).Id;
         }
 
         public async Task<bool> Update(int id, Genre genre)
@@ -46,7 +46,7 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            Genre genre = await _context.Genres.FindAsync(id);
+            Genre? genre = await _context.Genres.FindAsync(id);
 
             if (genre == null) return false;
 

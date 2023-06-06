@@ -7,7 +7,7 @@ namespace Bookstore.Repositories.Interfaces
         Task<int> Create(Genre genre);
         Task<bool> Delete(int id);
         Task<IEnumerable<Genre>> GetAll();
-        Task<Genre> GetById(int id);
+        Task<Genre?> GetById(int id);
         Task<bool> Update(int id, Genre genre);
     }
 }

@@ -9,7 +9,7 @@ namespace Bookstore.Services.Interfaces
         Task<IEnumerable<Employee>> GetAllEmployees();
         Task<IEnumerable<Employee>> GetAllEmployeesByPosition(EmployeePosition position);
         Task<IEnumerable<Employee>> GetAllEmployeesSortedBySurname(bool isDescending);
-        Task<Employee> GetEmployeeById(int id);
+        Task<Employee?> GetEmployeeById(int id);
         Task<IEnumerable<Employee>> GetEmployeeesByStatus(EmployeeStatus status);
         Task<bool> UpdateEmployee(int id, Employee employee);
     }

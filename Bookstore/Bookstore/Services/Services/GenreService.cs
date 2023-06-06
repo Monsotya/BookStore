@@ -13,7 +13,7 @@ namespace Bookstore.Services.Services
             _genreRepository = genreRepository;
         }
 
-        public async Task<Genre> GetGenreById(int id)
+        public async Task<Genre?> GetGenreById(int id)
         {
             return await _genreRepository.GetById(id);
         }

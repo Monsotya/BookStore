@@ -5,6 +5,6 @@ namespace Bookstore.Repositories.Interfaces
     public interface IUserRepository
     {
         Task<int> Create(User user);
-        Task<IEnumerable<User>> GetAll();
+        Task<IEnumerable<User?>> GetAll();
     }
 }

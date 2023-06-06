@@ -13,42 +13,42 @@ namespace Bookstore.Services.Services
             _bookRepository = bookRepository;
         }
 
-        public async Task<Book> GetBookById(int id)
+        public async Task<Book?> GetBookById(int id)
         {
             return await _bookRepository.GetById(id);
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooks()
+        public async Task<IEnumerable<Book?>> GetAllBooks()
         {
             return await _bookRepository.GetAll();
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooksSortedByTitle(bool isDescending)
+        public async Task<IEnumerable<Book?>> GetAllBooksSortedByTitle(bool isDescending)
         {
             if (isDescending)
             {
-                return await Task.Run(() => _bookRepository.GetAll().Result.OrderByDescending(x => x.Title));
+                return (await _bookRepository.GetAll()).OrderByDescending(x => x.Title);
             }
-            return await Task.Run(() => _bookRepository.GetAll().Result.OrderBy(x => x.Title));
+            return (await _bookRepository.GetAll()).OrderBy(x => x.Title);
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooksSortedByPrice(bool isDescending)
+        public async Task<IEnumerable<Book?>> GetAllBooksSortedByPrice(bool isDescending)
         {
             if (isDescending)
             {
-                return await Task.Run(() => _bookRepository.GetAll().Result.OrderByDescending(x => x.Price));
+                return (await _bookRepository.GetAll()).OrderByDescending(x => x.Price);
             }
-            return await Task.Run(() => _bookRepository.GetAll().Result.OrderBy(x => x.Price));
+            return (await _bookRepository.GetAll()).OrderBy(x => x.Price);
         }
 
-        public async Task<IEnumerable<Book>> GetBooksByGenre(Genre genre)
+        public async Task<IEnumerable<Book?>> GetBooksByGenre(Genre genre)
         {
-            return await Task.Run(() => _bookRepository.GetAll().Result.Where(x => x.Genres.Contains(genre)).ToList());
+            return (await _bookRepository.GetAll()).Where(x => x.Genres.Contains(genre)).ToList();
         }
 
-        public async Task<IEnumerable<Book>> GetBooksByAuthor(Author author)
+        public async Task<IEnumerable<Book?>> GetBooksByAuthor(Author author)
         {
-            return await Task.Run(() => _bookRepository.GetAll().Result.Where(x => x.Authors.Contains(author)).ToList());
+            return (await _bookRepository.GetAll()).Where(x => x.Authors.Contains(author)).ToList();
         }
 
         public async Task<int> AddBook(Book book)

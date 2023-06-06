@@ -13,10 +13,10 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<IEnumerable<Book>> GetAll() => await _context.Books.ToListAsync();
 
-        public async Task<Book> GetById(int id)
+        public async Task<Book?> GetById(int id)
         {
-            Book book = await _context.Books.FindAsync(id);
-            return book == null ? null : book;
+            Book? book = await _context.Books.FindAsync(id);
+            return book;
         }
 
         public async Task<int> Create(Book book)
@@ -24,7 +24,7 @@ namespace Bookstore.Repositories.Repositories
             await _context.Books.AddAsync(book);
             await _context.SaveChangesAsync();
 
-            return _context.Books.FindAsync(book.Id).Result.Id;
+            return (await _context.Books.FindAsync(book.Id)).Id;
         }
 
         public async Task<bool> Update(int id, Book book)
@@ -51,7 +51,7 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            Book book = await _context.Books.FindAsync(id);
+            Book? book = await _context.Books.FindAsync(id);
 
             if (book == null) return false;
 

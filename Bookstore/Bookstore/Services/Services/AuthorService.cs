@@ -13,7 +13,7 @@ namespace Bookstore.Services.Services
             _authorRepository = authorRepository;
         }
 
-        public async Task<Author> GetAuthorById(int id)
+        public async Task<Author?> GetAuthorById(int id)
         {
             return await _authorRepository.GetById(id);
         }
@@ -27,18 +27,18 @@ namespace Bookstore.Services.Services
         {
             if (isDescending)
             {
-                return await Task.Run(() => _authorRepository.GetAll().Result.OrderByDescending(x => x.Surname));
+                return (await _authorRepository.GetAll()).OrderByDescending(x => x.Surname);
             }
-            return await Task.Run(() => _authorRepository.GetAll().Result.OrderBy(x => x.Surname));
+            return (await _authorRepository.GetAll()).OrderBy(x => x.Surname);
         }
 
         public async Task<IEnumerable<Author>> GetAllAuthorsSortedByDateOfBirth(bool isDescending)
         {
             if (isDescending)
             {
-                return await Task.Run(() => _authorRepository.GetAll().Result.OrderByDescending(x => x.DateOfBirth));
+                return (await _authorRepository.GetAll()).OrderByDescending(x => x.DateOfBirth);
             }
-            return await Task.Run(() => _authorRepository.GetAll().Result.OrderBy(x => x.DateOfBirth));
+            return (await _authorRepository.GetAll()).OrderBy(x => x.DateOfBirth);
         }
 
         public async Task<int> AddAuthor(Author author)

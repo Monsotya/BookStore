@@ -11,14 +11,14 @@ namespace Bookstore.Repositories.Repositories
 
         public UserRepository(BookstoreDbContext context) => _context = context;
 
-        public async Task<IEnumerable<User>> GetAll() => await _context.Users.ToListAsync();
+        public async Task<IEnumerable<User?>> GetAll() => await _context.Users.ToListAsync();
 
         public async Task<int> Create(User user)
         {
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
-            return _context.Users.FindAsync(user.Id).Result.Id;
+            return (await _context.Users.FindAsync(user.Id)).Id;
         }
     }
 }

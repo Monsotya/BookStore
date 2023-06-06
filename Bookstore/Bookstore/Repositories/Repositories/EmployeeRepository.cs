@@ -13,10 +13,10 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<IEnumerable<Employee>> GetAll() => await _context.Employees.ToListAsync();
 
-        public async Task<Employee> GetById(int id)
+        public async Task<Employee?> GetById(int id)
         {
-            Employee employee = await _context.Employees.FindAsync(id);
-            return employee == null ? null : employee;
+            Employee? employee = await _context.Employees.FindAsync(id);
+            return employee;
         }
 
         public async Task<int> Create(Employee employee)
@@ -24,7 +24,7 @@ namespace Bookstore.Repositories.Repositories
             await _context.Employees.AddAsync(employee);
             await _context.SaveChangesAsync();
 
-            return _context.Employees.FindAsync(employee.Id).Result.Id;
+            return (await _context.Employees.FindAsync(employee.Id)).Id;
         }
 
         public async Task<bool> Update(int id, Employee employee)
@@ -50,7 +50,7 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            Employee employee = await _context.Employees.FindAsync(id);
+            Employee? employee = await _context.Employees.FindAsync(id);
 
             if (employee == null) return false;
 
