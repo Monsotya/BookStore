@@ -48,7 +48,7 @@ namespace Bookstore.Services.Services
 
         public async Task<IEnumerable<Book?>> GetBooksByAuthor(Author author)
         {
-            return (await _bookRepository.GetAll()).Where(x => x.Authors.Contains(author)).ToList();
+            return (await _bookRepository.GetAll()).Where(x => x.Author == author).ToList();
         }
 
         public async Task<int> AddBook(Book book)

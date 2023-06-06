@@ -38,7 +38,7 @@ namespace Bookstore.Repositories.Repositories
                 modifiedBook.Price = book.Price;
                 modifiedBook.PublishedDate = book.PublishedDate;
                 modifiedBook.PageNumber = book.PageNumber;
-                modifiedBook.Authors = book.Authors;
+                modifiedBook.Author = book.Author;
                 modifiedBook.Genres = book.Genres;
 
                 await _context.SaveChangesAsync();
