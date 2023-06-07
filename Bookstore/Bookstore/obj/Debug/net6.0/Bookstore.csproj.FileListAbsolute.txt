@@ -356,7 +356,6 @@ C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Composition.Runtime.dll
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Composition.TypedParts.dll
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
@@ -538,3 +537,16 @@ C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\obj\Debug\net6.
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\obj\Debug\net6.0\Bookstore.csproj.CopyComplete
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\obj\Debug\net6.0\Bookstore.genruntimeconfig.cache
 C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\obj\Debug\net6.0\Bookstore.csproj.AssemblyReference.cache
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\sturchyn\Documents\GitHub\BookStore\Bookstore\Bookstore\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
