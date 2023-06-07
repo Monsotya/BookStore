@@ -52,7 +52,7 @@ namespace Bookstore.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            Author author = await _authorService.GetAuthorById(id);
+            Author? author = await _authorService.GetAuthorById(id);
             return author == null ? NotFound() : Ok(author);
         }
 
@@ -72,7 +72,7 @@ namespace Bookstore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var id = await Task.Run(() => _authorService.AddAuthor(author).Result);
+            var id = await _authorService.AddAuthor(author);
             return CreatedAtAction(nameof(GetById), new { id = id }, author);
         }
 
@@ -93,7 +93,7 @@ namespace Bookstore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await Task.Run(() => _authorService.UpdateAuthor(id, author).Result);
+            var result = await _authorService.UpdateAuthor(id, author);
             if (!result) return BadRequest();
 
             return NoContent();
@@ -110,11 +110,17 @@ namespace Bookstore.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await Task.Run(() => _authorService.DeleteAuthor(id).Result);
+            var result = await _authorService.DeleteAuthor(id);
             if (!result) return NotFound();
 
             return NoContent();
         }
-    }
 
+        /// <summary>
+        /// Retrieves all authors with count of their books.
+        /// </summary>
+        /// <returns>A collection of authors count of their books.</returns>
+        [HttpGet("GetAuthorsWithBooksCount")]
+        public async Task<IEnumerable<object>> GetAuthorsWithBooksCount() => await _authorService.GetAuthorsWithBooksCount();
+    }
 }

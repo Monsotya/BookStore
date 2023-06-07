@@ -9,5 +9,6 @@ namespace Bookstore.Repositories.Interfaces
         Task<IEnumerable<Author>> GetAll();
         Task<Author?> GetById(int id);
         Task<bool> Update(int id, Author author);
+        Task<IEnumerable<object>> GetAuthorsWithBooksCount();
     }
 }

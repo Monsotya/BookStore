@@ -60,5 +60,22 @@ namespace Bookstore.Repositories.Repositories
             return true;
 
         }
+
+        public async Task<IEnumerable<object>> GetAuthorsWithBooksCount()
+        {
+            var result = _context.Authors
+                .Join(_context.Books, author => author.Id, book => book.Author.Id, (author, book) => new { author, book })
+                .GroupBy(a => new { a.author.Id, a.author.Name })
+                .Select(g => new
+                {
+                    Id = g.Key.Id,
+                    Name = g.Key.Name,
+                    BookCount = g.Count()
+                });
+
+            //string queryString = result.ToQueryString();
+
+            return result;
+        }
     }
 }

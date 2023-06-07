@@ -55,5 +55,10 @@ namespace Bookstore.Services.Services
         {
             return await _authorRepository.Delete(id);
         }
+
+        public async Task<IEnumerable<object>> GetAuthorsWithBooksCount()
+        {
+            return await _authorRepository.GetAuthorsWithBooksCount();
+        }
     }
 }

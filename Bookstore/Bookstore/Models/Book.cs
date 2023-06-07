@@ -19,7 +19,7 @@ namespace Bookstore.Models
         [Range(0, 9999, ErrorMessage = "The PageNumber field must be between 0 and 9999.")]
         public int PageNumber { get; set; }
 
-        public Author Author { get; set; }
+        public Author? Author { get; set; }
 
         public List<Genre>? Genres { get; set; }
     }

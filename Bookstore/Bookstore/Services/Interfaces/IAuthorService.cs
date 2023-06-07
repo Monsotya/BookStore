@@ -11,5 +11,6 @@ namespace Bookstore.Services.Interfaces
         Task<IEnumerable<Author>> GetAllAuthorsSortedBySurname(bool isDescending);
         Task<Author?> GetAuthorById(int id);
         Task<bool> UpdateAuthor(int id, Author author);
+        Task<IEnumerable<object>> GetAuthorsWithBooksCount();
     }
 }
