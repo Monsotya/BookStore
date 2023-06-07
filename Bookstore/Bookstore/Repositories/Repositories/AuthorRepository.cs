@@ -63,7 +63,7 @@ namespace Bookstore.Repositories.Repositories
 
         public async Task<IEnumerable<object>> GetAuthorsWithBooksCount()
         {
-            var result = _context.Authors
+            var result = await _context.Authors
                 .Join(_context.Books, author => author.Id, book => book.Author.Id, (author, book) => new { author, book })
                 .GroupBy(a => new { a.author.Id, a.author.Name })
                 .Select(g => new
@@ -71,7 +71,8 @@ namespace Bookstore.Repositories.Repositories
                     Id = g.Key.Id,
                     Name = g.Key.Name,
                     BookCount = g.Count()
-                });
+                })
+                .ToListAsync();
 
             //string queryString = result.ToQueryString();
 

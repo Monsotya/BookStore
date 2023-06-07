@@ -131,7 +131,7 @@ namespace Bookstore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var id = await Task.Run(() => _bookService.AddBook(book).Result);
+            var id = await _bookService.AddBook(book);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, book);
         }
@@ -152,7 +152,7 @@ namespace Bookstore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await Task.Run(() => _bookService.UpdateBook(id, book).Result);
+            var result = await _bookService.UpdateBook(id, book);
             if (!result) return BadRequest();
 
             return NoContent();
@@ -169,7 +169,7 @@ namespace Bookstore.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await Task.Run(() => _bookService.DeleteBook(id).Result);
+            var result = await _bookService.DeleteBook(id);
             if (!result) return NotFound();
 
             return NoContent();

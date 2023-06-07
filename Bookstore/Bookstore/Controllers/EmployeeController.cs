@@ -100,7 +100,7 @@ namespace Bookstore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var id = await Task.Run(() => _employeeService.AddEmployee(employee));
+            var id = await _employeeService.AddEmployee(employee);
             return CreatedAtAction(nameof(GetById), new { id = id }, employee);
         }
 
@@ -138,7 +138,7 @@ namespace Bookstore.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await Task.Run(() => _employeeService.DeleteEmployee(id).Result);
+            var result = await _employeeService.DeleteEmployee(id);
             if (!result) return NotFound();
 
             return NoContent();

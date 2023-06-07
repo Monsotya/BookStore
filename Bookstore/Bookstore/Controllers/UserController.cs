@@ -63,7 +63,7 @@ namespace Bookstore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var id = await Task.Run(() => _userService.Register(user).Result);
+            var id = await _userService.Register(user);
 
             return CreatedAtAction(nameof(Register), new { id = id }, user);
         }

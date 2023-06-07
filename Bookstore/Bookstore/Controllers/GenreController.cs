@@ -56,7 +56,7 @@ namespace Bookstore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var id = await Task.Run(() => _genreService.AddGenre(genre));
+            var id = await _genreService.AddGenre(genre);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, genre);
         }
@@ -78,7 +78,7 @@ namespace Bookstore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await Task.Run(() => _genreService.UpdateGenre(id, genre).Result);
+            var result = await _genreService.UpdateGenre(id, genre);
             if (!result) return BadRequest();
 
             return NoContent();
@@ -95,7 +95,7 @@ namespace Bookstore.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await Task.Run(() => _genreService.DeleteGenre(id).Result);
+            var result = await _genreService.DeleteGenre(id);
             if (!result) return NotFound();
 
             return NoContent();
