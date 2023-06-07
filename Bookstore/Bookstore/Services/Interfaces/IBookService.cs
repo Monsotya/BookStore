@@ -12,6 +12,7 @@ namespace Bookstore.Services.Interfaces
         Task<Book?> GetBookById(int id);
         Task<IEnumerable<Book?>> GetBooksByAuthor(Author author);
         Task<IEnumerable<Book?>> GetBooksByGenre(Genre genre);
+        Task<IEnumerable<Book?>> GetBooksByPageCount(int count);
         Task<bool> UpdateBook(int id, Book book);
     }
 }

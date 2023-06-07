@@ -66,6 +66,25 @@ namespace Bookstore.Controllers
         }
 
         /// <summary>
+        /// Retrieves books by page count.
+        /// </summary>
+        /// <param name="count">The count of pages of the books.</param>
+        /// <returns>The books with the specified page count.</returns>
+        [HttpGet("GetBooksByPageCount")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetBooksByPageCount(int count)
+        {
+            var books = await _bookService.GetBooksByPageCount(count);
+
+            if (books.Count() > 0)
+            {
+                return Ok(books);
+            }
+            return NotFound();
+        }
+
+        /// <summary>
         /// Retrieves books by author.
         /// </summary>
         /// <param name="author">The author of the books.</param>

@@ -46,6 +46,11 @@ namespace Bookstore.Services.Services
             return (await _bookRepository.GetAll()).Where(x => x.Genres.Contains(genre)).ToList();
         }
 
+        public async Task<IEnumerable<Book?>> GetBooksByPageCount(int count)
+        {
+            return (await _bookRepository.GetAll()).Where(x => x.PageNumber == count).ToList();
+        }
+
         public async Task<IEnumerable<Book?>> GetBooksByAuthor(Author author)
         {
             return (await _bookRepository.GetAll()).Where(x => x.Author == author).ToList();
