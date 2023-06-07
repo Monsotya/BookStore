@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bookstore.Models
 {
-    [Index(nameof(Id), IsUnique = true)]
+    [Index(nameof(Name), IsUnique = true)]
     public class Genre
     {
         public int Id { get; set; }
