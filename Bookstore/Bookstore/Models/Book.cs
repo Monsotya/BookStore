@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bookstore.Models
 {
-    [Index(nameof(Id), AllDescending = true)]
     public class Book
     {
         public int Id { get; set; }

@@ -12,17 +12,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookstore.Migrations
 {
     [DbContext(typeof(BookstoreDbContext))]
-    [Migration("20230606140110_Initial")]
+    [Migration("20230609104046_Initial")]
     partial class Initial
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.15")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Bookstore.Models.Author", b =>
                 {
@@ -30,7 +31,7 @@ namespace Bookstore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -57,9 +58,9 @@ namespace Bookstore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AuthorId")
+                    b.Property<int?>("AuthorId")
                         .HasColumnType("int");
 
                     b.Property<int>("PageNumber")
@@ -88,7 +89,7 @@ namespace Bookstore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -118,18 +119,21 @@ namespace Bookstore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BookId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Genres");
                 });
@@ -140,7 +144,7 @@ namespace Bookstore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
@@ -175,9 +179,7 @@ namespace Bookstore.Migrations
                 {
                     b.HasOne("Bookstore.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AuthorId");
 
                     b.Navigation("Author");
                 });

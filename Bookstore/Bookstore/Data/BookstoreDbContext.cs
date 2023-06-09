@@ -1,5 +1,8 @@
 ﻿using Bookstore.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Reflection.Metadata;
 
 namespace Bookstore.Data
 {
@@ -9,6 +12,7 @@ namespace Bookstore.Data
             : base(options)
         {            
         }
+
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Genre> Genres { get; set; }

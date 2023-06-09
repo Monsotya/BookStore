@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Bookstore.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -70,17 +72,16 @@ namespace Bookstore.Migrations
                     Price = table.Column<double>(type: "float", nullable: false),
                     PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PageNumber = table.Column<int>(type: "int", nullable: false),
-                    AuthorId = table.Column<int>(type: "int", nullable: false)
+                    AuthorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.PrimaryKey("PK_Books", x => x.Id).Annotation("SqlServer:SortOrder", "DESC");
                     table.ForeignKey(
                         name: "FK_Books_Authors_AuthorId",
                         column: x => x.AuthorId,
                         principalTable: "Authors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -89,7 +90,7 @@ namespace Bookstore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -111,8 +112,15 @@ namespace Bookstore.Migrations
                 name: "IX_Genres_BookId",
                 table: "Genres",
                 column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Genres_Name",
+                table: "Genres",
+                column: "Name",
+                unique: true);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

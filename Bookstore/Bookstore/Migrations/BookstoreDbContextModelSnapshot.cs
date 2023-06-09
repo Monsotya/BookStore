@@ -77,9 +77,6 @@ namespace Bookstore.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("Id")
-                        .IsDescending();
-
                     b.ToTable("Books");
                 });
 
