@@ -9,5 +9,6 @@ namespace Bookstore.Repositories.Interfaces
         Task<IEnumerable<Book>> GetAll();
         Task<Book?> GetById(int id);
         Task<bool> Update(int id, Book book);
+        Task<IEnumerable<Book>> GetByPage(int page, int rows);
     }
 }

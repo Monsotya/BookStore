@@ -61,5 +61,15 @@ namespace Bookstore.Repositories.Repositories
             return true;
 
         }
+
+        public async Task<IEnumerable<Book>> GetByPage(int page, int rows)
+        {
+            var books = await _context.Books
+                .Skip((page - 1) * rows)
+                .Take(rows)
+                .ToListAsync();
+
+            return books;
+        }
     }
 }

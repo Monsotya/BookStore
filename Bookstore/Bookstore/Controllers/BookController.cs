@@ -70,12 +70,12 @@ namespace Bookstore.Controllers
         /// </summary>
         /// <param name="count">The count of pages of the books.</param>
         /// <returns>The books with the specified page count.</returns>
-        [HttpGet("GetBooksByPageCount")]
+        [HttpGet("GetBooksByPage")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetBooksByPageCount(int count)
+        public async Task<IActionResult> GetBooksByPage(int page, int rows = 10)
         {
-            var books = await _bookService.GetBooksByPageCount(count);
+            var books = await _bookService.GetBooksByPage(page, rows);
 
             if (books.Count() > 0)
             {
